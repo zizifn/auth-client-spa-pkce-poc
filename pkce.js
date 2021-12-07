@@ -7,13 +7,15 @@ const updateUI = async () => {
     document.getElementById("btn-logout").disabled = !isAuthenticated;
     document.getElementById("btn-login").disabled = isAuthenticated;
   };
-  
+
 
   window.onload = async () => {
     auth0 = await createAuth0Client({
         domain: 'dev-nfefysox.us.auth0.com',
         client_id: 'Egzg4IYGOl95vuMXqtTtzLmIp4kIEdki'
       });
+
+      updateUI();
   }
 
 
