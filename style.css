@@ -1,0 +1,33 @@
+.section {
+  margin: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.1);
+}
+.blod {
+  font-weight: bold;
+}
+.code-verifer {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(14, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+.code-challenge {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(26, 1, 1, 0.1);
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+}
+.actions > button {
+  background-color: #3273dc;
+  border-color: transparent;
+  color: #fff;
+  margin-left: 1rem;
+}

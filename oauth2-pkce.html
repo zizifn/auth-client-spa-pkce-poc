@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oauth2 Pkce</title>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.12/auth0-spa-js.production.js"></script>
+    <script src="./auth0-spa-js.production.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./crypto-js.min.js"></script>
 </head>
+
 <body>
     <h2>SPA Authentication Sample</h2>
     <p>Welcome to our page!</p>
     <button id="btn-login" disabled="true" onclick="login()">Log in</button>
     <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+
+    <section class="section">
+        <div class="code-verifer">
+            <label for="code-verifer" class="blod">Code Verifier</label>
+            <textarea name="" id="code-verifer" cols="30" rows="2"></textarea>
+        </div>
+        <div class="code-challenge">
+            <label for="code-challenge" class="blod">Code Challenge</label>
+            <textarea name="" id="code-challenge" cols="30" rows="2"></textarea>
+        </div>
+
+        <div class="actions">
+            <button id="generate-code-verifier">Generate Code Verifier</button>
+            <button id="generate-code-challenge">Generate Code Challenge</button>
+        </div>
+
+    </section>
+
+
     <script src="./pkce.js"></script>
 </body>
+
 </html>
