@@ -6,6 +6,13 @@
 .blod {
   font-weight: bold;
 }
+.client-id {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(14, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
 .code-verifer {
   font-size: 1rem;
   display: flex;
@@ -24,10 +31,61 @@
 .actions {
   display: flex;
   flex-direction: row;
+  margin-bottom: 2rem;
 }
-.actions > button {
+.note-poc-api-scopes {
+  margin-bottom: 2rem;
+}
+.auth-code {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(26, 1, 1, 0.1);
+  margin-bottom: 2rem;
+}
+.loginForNoteApi {
+  margin-bottom: 2rem;
+}
+.auth-code-btn {
+  align-self: flex-start;
+}
+
+.access-token {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(14, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+.notes {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 0 2px rgba(14, 0, 0, 0.1);
+  margin-bottom: 10rem;
+}
+.access-token-btn,
+.notes-btn,
+add-notes-btn {
+  align-self: flex-start;
+}
+.actions > button,
+.loginForNoteApi > button,
+.auth-code > button,
+.access-token > button,
+.notes > button {
   background-color: #3273dc;
   border-color: transparent;
   color: #fff;
   margin-left: 1rem;
+  align-self: flex-start;
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+blockquote span {
+  background: #eee;
 }
