@@ -9,33 +9,84 @@
     <script src="./auth0-spa-js.production.js"></script>
     <link rel="stylesheet" href="./style.css">
     <script src="./crypto-js.min.js"></script>
+    <script src="./jsrsasign-all-min.js"></script>
 </head>
 
 <body>
-    <h2>SPA Authentication Sample</h2>
-    <p>Welcome to our page!</p>
-    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
-    <button id="btn-logout" disabled="true" onclick="logout()">Log out</button>
+    <h2>SPA Authentication With PKCE Sample</h2>
+    <p>Welcome to our page! Step by step guide for Authorization Code Flow with Proof Key for Code Exchange(PKCE)</p>
 
     <section class="section">
-        <div class="code-verifer">
-            <label for="code-verifer" class="blod">Code Verifier</label>
-            <textarea name="" id="code-verifer" cols="30" rows="2"></textarea>
-        </div>
-        <div class="code-challenge">
-            <label for="code-challenge" class="blod">Code Challenge</label>
-            <textarea name="" id="code-challenge" cols="30" rows="2"></textarea>
-        </div>
+        <form action="" id="auth0Form">
+            <div class="client-id">
+                <label for="client-id" class="blod">client id</label>
+                <textarea name="client-id" id="client-id" cols="30" rows="2"></textarea>
+            </div>
+            <div class="code-verifer">
+                <label for="code-verifer" class="blod">Code Verifier</label>
+                <textarea name="code-verifer" id="code-verifer" cols="30" rows="2"></textarea>
+                <blockquote>
+                    <span>1. use random to generate</span>
+                    <span>2. store in sessionStorage</span>
+                </blockquote>
+            </div>
+            <div class="code-challenge">
+                <label for="code-challenge" class="blod">Code Challenge</label>
+                <textarea name="code-challenge" id="code-challenge" cols="30" rows="2"></textarea>
+                <blockquote>
+                    <span>code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))</span>
+                </blockquote>
+            </div>
 
-        <div class="actions">
-            <button id="generate-code-verifier">Generate Code Verifier</button>
-            <button id="generate-code-challenge">Generate Code Challenge</button>
-        </div>
+            <div class="actions">
+                <button type="button" id="generate-code-verifier">Generate Code Verifier</button>
+                <button type="button" id="generate-code-challenge">Generate Code Challenge</button>
+            </div>
+            <div class="note-poc-api-scopes">
+                <fieldset>
+                    <legend>Choose note-poc API scopes</legend>
+                    <div>
+                        <input type="checkbox" id="readnote" name="readnote" value="read:note" checked>
+                        <label for="readnote">read:note</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="writenote" name="writenote" value="write:note">
+                        <label for="writenote">write:note</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="loginForNoteApi">
+                <button type="button" id="loginForNoteApi">Login for note-poc API</button>
+            </div>
 
+            <div class="auth-code">
+                <label for="auth-code" class="blod">auth code</label>
+                <textarea name="auth-code" id="auth-code" disabled cols="30" rows="2"></textarea>
+                <button class="auth-code-btn" type="button" id="auth-code-btn">Get Auth Code from redirect URL</button>
+            </div>
+
+            <div class="access-token">
+                <label for="access-token" class=" blod">access token</label>
+                <textarea name="access-token" id="access-token" disabled cols="30" rows="2"></textarea>
+                <button class="access-token-btn" type="button" id="access-token-btn">Get access token from
+                    code</button>
+            </div>
+        </form>
     </section>
 
+    <section class="notes">
+        <label for="notes" class="blod">notes</label>
+        <ul name="notes" id="notes-ls">
+        </ul>
+        <button id="notes-btn">load notes</button>
 
-    <script src="./pkce.js"></script>
+        <label for="add-note" class="blod">Add Note</label>
+        <input type="text" name="add-note" id="add-note">
+        <button id="add-notes-btn">add note</button>
+        <span id="add-notes-result"></span>
+    </section>
+
+    <script type="module" src="./pkce.js"></script>
 </body>
 
 </html>
